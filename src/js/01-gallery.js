@@ -8,26 +8,27 @@ console.log(galleryItems);
 
 ///////////////////////////////////////////Пермененные\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-const refs = {
-  gallery: document.querySelector('.gallery'),
-};
+const gallery = document.querySelector('.gallery');
+console.log(gallery);
 
-// /////////////////////////////////////////Шаблон и Рендер\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////////////////////////Шаблон\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 const galleryTemplate = ({ preview, original, description }) =>
   `<a class="gallery__item" href="${original}">
-  <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>`;
+    <img class="gallery__image" src="${preview}" alt="${description}" />
+  </a>`;
+
+///////////////////////////////////////////Создание галлереи\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 const render = () => {
   const list = galleryItems.map(galleryTemplate).join('');
 
-  refs.gallery.innerHTML = '';
-  refs.gallery.insertAdjacentHTML('beforeend', list);
+  gallery.innerHTML = '';
+  gallery.insertAdjacentHTML('beforeend', list);
 };
 render();
 
-////////////////////////////////////////////////////////////Сімпл-Лайтбокс\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////////////////////////Лайтбокс\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
